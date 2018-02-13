@@ -1,0 +1,10 @@
+<h1>les gosips</h1>
+<p><% @gossip.each do |goss| %>
+	<ul>
+		<li><%= goss.content %></li>
+	<%= User.find(goss.user_id).username %>
+	<% if current_user == User.find(goss.user_id) %>
+	  <%= link_to 'Clique pour détruire', goss, method: :delete %>
+	  <% end %>
+
+	</ul><% end %>
